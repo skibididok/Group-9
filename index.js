@@ -9,6 +9,11 @@ app.use(express.json());
 // GET: Retrieve all students
 app.get("/students", (req, res) => {
     res.send(students);
+    //get owners balance
+
+    //check if has enough balance
+
+    //if enough balance, then send if not cancel
 });
 
 // POST: Add a new student
