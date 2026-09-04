@@ -4,7 +4,7 @@ const students = [
 {
     id: 1, 
     name: "Juvilyn T. Magante"
-    age: 23,
+    age: 22,
     course: "Computer Science"
 }
 ]
