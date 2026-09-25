@@ -13,7 +13,7 @@ export const getStudentById = async (id) => {
 export const createStudent = async ({ name, age, course }) => {
   const result = await pool.query(
     "INSERT INTO students (name, age, course) VALUES ($1, $2, $3) RETURNING *",
-    [name, age, course],
+    [name, age, course]
   );
   return result.rows[0];
 };
@@ -27,7 +27,7 @@ export const updateStudent = async (id, fields) => {
 
   const result = await pool.query(
     `UPDATE students SET ${setClause} WHERE id = $${keys.length + 1} RETURNING *`,
-    [...values, id],
+    [...values, id]
   );
   return result.rows[0];
 };
@@ -35,7 +35,7 @@ export const updateStudent = async (id, fields) => {
 export const deleteStudent = async (id) => {
   const result = await pool.query(
     "DELETE FROM students WHERE id = $1 RETURNING *",
-    [id],
+    [id]
   );
   return result.rows[0];
 };

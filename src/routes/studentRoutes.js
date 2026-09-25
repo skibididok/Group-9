@@ -1,16 +1,21 @@
 import { Router } from "express";
 import {
-  addStudent,
+  createStudent,
+  deleteStudent,
+  getStudentById,
   getStudents,
-  patchStudent,
-  removeStudent,
+  updateStudent,
 } from "../controllers/studentController.js";
+import {authenticateToken} from "../middlewares/authMiddleware.js"
 
 const router = Router();
 
+router.use(authenticateToken);
+
 router.get("/", getStudents);
-router.post("/", addStudent);
-router.patch("/:id", patchStudent);
-router.delete("/:id", removeStudent);
+router.get("/:id", getStudentById);
+router.post("/", createStudent);
+router.patch("/:id", updateStudent);
+router.delete("/:id", deleteStudent);
 
 export default router;

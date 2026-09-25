@@ -5,7 +5,6 @@ export const getStudents = async (req, res) => {
     const students = await studentService.fetchAllStudents();
     res.json(students);
   } catch (error) {
-    console.error("Error in getStudents:", error.message);
     res.status(500).json({ message: "Failed to fetch students", error: error.message });
   }
 };
