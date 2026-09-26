@@ -21,3 +21,12 @@ export const login = async (req, res) => {
 export const logout = async (req, res) => {
   res.json({ message: "Logged out successfully" });
 };
+
+export const getMe = async (req, res) => {
+  try {
+    // req.user is set by authMiddleware after verifying the JWT
+    res.json({ user: req.user });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
